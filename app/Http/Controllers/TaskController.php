@@ -8,7 +8,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\Statistics;
-
+use App\Http\Requests\TaskStoreRequest;
 
 
 class TaskController extends Controller
@@ -32,7 +32,7 @@ class TaskController extends Controller
         return view('tasks.create', compact('users'));
     }
 
-    public function store(Request $request){
+    public function store(TaskStoreRequest $request){
         $task = new Task;
         $task->title = $request->title;
         $task->description = $request->description;
@@ -42,9 +42,7 @@ class TaskController extends Controller
         $task->save();
     
         DB::transaction(function () use ($task) {
-            $userId = $task->assigned_to_id; // Use assigned_to_id instead of user_id
-    
-            // Check if the statistic entry exists, if not create it
+            $userId = $task->assigned_to_id;
             $statistic = Statistics::firstOrCreate(
                 ['user_id' => $userId],
                 ['task_count' => 0]
