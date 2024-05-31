@@ -50,7 +50,7 @@ class User extends Authenticatable
     }
 
     public function statistics(){
-        return $this->hasOne(Statistics::class,'user_id');
+        return $this->hasOne(Statistics::class,'user_id')->latest();
     }
 
 }

@@ -9,38 +9,14 @@ use App\Models\Statistics;
 
 class StatisticController extends Controller
 {
-    // public function index(){
-
-    //     $users = User::withCount('assignedTasks')->get();
-
-    //     foreach($users as $user){
-    //         $statistic = new Statistics;
-    //         $statistic->user_id = $user->id;
-    //         $statistic->task_count = $user->assigned_tasks_count;
-    //         $statistic->save();
-
-    //         return view('statistics.index', compact('users'));
-
-    //     }
-    // }
-    // public function index(){
-
-    //     $users = User::withCount('assignedTasks')->get();
-    
-    //     foreach($users as $user){
-    //         $statistic = new Statistics;
-    //         $statistic->user_id = $user->id;
-    //         $statistic->task_count = $user->assigned_tasks_count;
-    //         $statistic->save();
-    //     }
-        
-    
-    //     return view('statistics.index', compact('users'));
-    // }
      public function index(){
         $statistics = Statistics::with('user')->get();
-
-        // Return the statistics view with the statistics data
-        return view('statistics.index', compact('statistics'));
+        $statistics=Statistics::simplePaginate(15);
+        return view('statistics.index',compact('statistics'),["statistics" => $statistics]);
      }
+
+     public function topUsersIndex(){
+     $topUsers = User::withCount('assignedTasks')->orderByDesc('assigned_tasks_count')->take(10)->get();
+     return view('statistics.top', compact('topUsers'));
+}
 }

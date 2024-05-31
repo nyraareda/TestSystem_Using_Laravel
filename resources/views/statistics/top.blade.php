@@ -3,40 +3,32 @@
 @section('content')
 <div class="container">
     @if(auth()->user()->role === 'admin')
-            <a href="/statistics/top" class="btn btn-success mt-5">Show Top Students</a>
+            <a href="/statistics" class="btn btn-Primary mt-5">All Statistics</a>
         @endif
-        @if(auth()->user()->role === 'admin')
-            <a href="/tasks" class="btn btn-primary mt-5">All Tasks</a>
-        @endif
+    <h1>Top 10 Users with Highest Task Counts</h1>
+    
     <table class="table">
         <thead>
             <tr>
-                <th>ID</th> 
+                <th>User Id</th> 
                 <th>Student Name</th>
                 <th>Task Count</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($statistics as $statistic)
+            @foreach ($topUsers as $user)
                 <tr>
-                    <td>{{ $statistic->id }}</td>
-                    <td>{{ $statistic->user->name }}</td>
-                    <td>{{ $statistic->task_count }}</td>
+                    <td>{{ $user->id }}</td>
+                    <td>{{ $user->name }}</td>
+                    <td>{{ $user->assigned_tasks_count }}</td>
                 </tr>
             @endforeach
         </tbody>
     </table>
-    <div class="d-flex justify-content-center">
-        {{ $statistics->links() }}
-    </div>
+    
 </div>
-<!-- Bootstrap JS -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-<!-- Include Bootstrap Bundle -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-
-<!-- Initialize Bootstrap dropdown -->
 <script>
     $(document).ready(function(){
         $('.dropdown-toggle').dropdown();
