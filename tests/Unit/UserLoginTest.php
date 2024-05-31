@@ -31,4 +31,16 @@ class UserLoginTest extends TestCase
 
         $this->assertTrue($user1->name != $user2->name);
     }
+
+    public function test_post_new_user(){
+
+        $response =$this->post('register',[
+            'name'=>'handa',
+            'email'=>'handa@gmail.com',
+            'password'=>'123456789',
+            'role'=>'user'
+        ]);
+
+        $response->assertRedirect('/');
+    }
 }
