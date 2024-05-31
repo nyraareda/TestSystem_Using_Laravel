@@ -26,4 +26,5 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 
 Route::get('/statistics', [StatisticController::class, 'index'])->middleware('auth');
 Route::get('/statistics/top', [StatisticController::class, 'topUsersIndex'])->middleware('auth');
+Route::get('/tasks', [TaskController::class, 'index'])->middleware('auth');
 

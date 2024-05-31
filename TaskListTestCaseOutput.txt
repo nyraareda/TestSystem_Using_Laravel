@@ -1,0 +1,19 @@
+
+   PASS  Tests\Unit\ExampleTest
+  ✓ that true is true                                                 0.01s  
+
+   PASS  Tests\Feature\ExampleTest
+  ✓ the application returns a successful response                     1.13s  
+
+   PASS  Tests\Feature\TaskCreationTest
+  ✓ task creation                                                     0.07s  
+
+   PASS  Tests\Feature\TaskListTest
+  ✓ task list                                                         0.03s  
+
+   PASS  Tests\Feature\UserTest
+  ✓ example                                                           0.03s  
+
+  Tests:    5 passed (8 assertions)
+  Duration: 1.47s
+
