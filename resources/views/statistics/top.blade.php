@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     @if(auth()->user()->role === 'admin')
-            <a href="/statistics" class="btn btn-Primary mt-5">All Statistics</a>
+            <a href="/statistics" class="btn btn-primary mt-5">All Statistics</a>
         @endif
     <h1>Top 10 Users with Highest Task Counts</h1>
     
