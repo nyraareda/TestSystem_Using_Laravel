@@ -3,19 +3,20 @@
 namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Models\User;
-class ExampleTest extends TestCase
+
+class UserTest extends TestCase
 {
     /**
-     * A basic test example.
+     * A basic feature test example.
      */
-    use RefreshDatabase;
-    public function test_the_application_returns_a_successful_response(): void
+
+     use RefreshDatabase;
+    public function test_example()
     {
         $user = User::factory()->create();
-
-        // Make authenticated request
         $response = $this->actingAs($user)->get('/');
 
         $response->assertStatus(200);

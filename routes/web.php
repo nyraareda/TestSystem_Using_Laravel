@@ -22,9 +22,8 @@ use App\Http\Controllers\StatisticController;
 Route::resource('tasks', TaskController::class)->middleware('auth');
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-// Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-// Route::resource('statistics', StatisticController::class)->middleware('auth');
 Route::get('/statistics', [StatisticController::class, 'index'])->middleware('auth');
 Route::get('/statistics/top', [StatisticController::class, 'topUsersIndex'])->middleware('auth');
+
