@@ -49,4 +49,9 @@ class UserLoginTest extends TestCase
             'name'=>'Nyraa Reda'
         ]);
     }
+
+    public function test_seeders(){
+        $this->seed();
+        
+    }
 }
