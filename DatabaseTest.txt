@@ -1,0 +1,28 @@
+
+   PASS  Tests\Unit\ExampleTest
+  ✓ that true is true                                                    0.21s  
+
+   PASS  Tests\Unit\UserLoginTest
+  ✓ user login form                                                      0.13s  
+  ✓ user validation                                                      0.01s  
+  ✓ post new user                                                        0.04s  
+  ✓ database                                                             0.02s  
+
+   PASS  Tests\Feature\ExampleTest
+  ✓ the application returns a successful response                        4.13s  
+
+   PASS  Tests\Feature\StatisticsTest
+  ✓ statistics                                                           0.35s  
+
+   PASS  Tests\Feature\TaskCreationTest
+  ✓ task creation                                                        0.04s  
+
+   PASS  Tests\Feature\TaskListTest
+  ✓ task list                                                            0.03s  
+
+   PASS  Tests\Feature\UserTest
+  ✓ example                                                              0.02s  
+
+  Tests:    10 passed (14 assertions)
+  Duration: 5.20s
+

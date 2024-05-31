@@ -43,4 +43,10 @@ class UserLoginTest extends TestCase
 
         $response->assertRedirect('/');
     }
+
+    public function test_database(){
+        $this->assertDatabaseHas('users',[
+            'name'=>'Nyraa Reda'
+        ]);
+    }
 }
