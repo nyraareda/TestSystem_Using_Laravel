@@ -2,9 +2,6 @@
 
 @section('content')
 <div class="container">
-    @if(auth()->user()->role === 'admin')
-            <a href="/statistics/top" class="btn btn-success mt-5">Show Top Students</a>
-        @endif
         @if(auth()->user()->role === 'admin')
             <a href="/tasks" class="btn btn-primary mt-5">All Tasks</a>
         @endif

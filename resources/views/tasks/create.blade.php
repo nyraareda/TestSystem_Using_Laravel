@@ -30,11 +30,6 @@
                         <option value="{{ $user->id }}" {{ old('assigned_to_id') == $user->id ? 'selected' : '' }}>{{ $user->name }}</option>
                     @endforeach
                 </select>
-                {{-- @error('assigned_to_id')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror --}}
             </div>
              <button type="submit" class="btn btn-primary">Add Task</button>
         </form>

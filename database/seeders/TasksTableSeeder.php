@@ -40,24 +40,24 @@ class TasksTableSeeder extends Seeder
     /**
      * Update statistics for the given user ID.
      */
-    private function updateStatistics($userId)
-{
-    // Count the total number of tasks assigned to the user
-    $taskCount = DB::table('tasks')->where('assigned_to_id', $userId)->count();
+//     private function updateStatistics($userId)
+// {
+//     // Count the total number of tasks assigned to the user
+//     $taskCount = DB::table('tasks')->where('assigned_to_id', $userId)->count();
 
-    // Check if statistics record exists for the user
-    $statistics = Statistics::where('user_id', $userId)->first();
+//     // Check if statistics record exists for the user
+//     $statistics = Statistics::where('user_id', $userId)->first();
 
-    if ($statistics) {
-        // Update task count
-        $statistics->task_count = $taskCount;
-        $statistics->save();
-    } else {
-        // Create new statistics record
-        Statistics::create([
-            'user_id' => $userId,
-            'task_count' => $taskCount,
-        ]);
-    }
-}
+//     if ($statistics) {
+//         // Update task count
+//         $statistics->task_count = $taskCount;
+//         $statistics->save();
+//     } else {
+//         // Create new statistics record
+//         Statistics::create([
+//             'user_id' => $userId,
+//             'task_count' => $taskCount,
+//         ]);
+//     }
+// }
 }

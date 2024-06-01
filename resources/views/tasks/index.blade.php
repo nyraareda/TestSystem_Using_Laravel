@@ -7,7 +7,7 @@
         @endif
 
         @if(auth()->user()->role === 'admin')
-            <a href="/statistics" class="btn btn-secondary mt-5">Statistics</a>
+            <a href="/statistics/top" class="btn btn-secondary mt-5">Top Students</a>
         @endif
         
         <table class="table">

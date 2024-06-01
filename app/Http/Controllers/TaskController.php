@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\Statistics;
 use App\Http\Requests\TaskStoreRequest;
+use App\Jobs\UpdateStatisticsJob;
 
 
 class TaskController extends Controller
@@ -41,17 +42,18 @@ class TaskController extends Controller
     
         $task->save();
     
-        DB::transaction(function () use ($task) {
-            $userId = $task->assigned_to_id;
-            $statistic = Statistics::firstOrCreate(
-                ['user_id' => $userId],
-                ['task_count' => 0]
-            );
+        // DB::transaction(function () use ($task) {
+        //     $userId = $task->assigned_to_id;
+        //     $statistic = Statistics::firstOrCreate(
+        //         ['user_id' => $userId],
+        //         ['task_count' => 0]
+        //     );
     
-            $statistic->task_count++;
-            $statistic->save();
-        });
-    
+        //     $statistic->task_count++;
+        //     $statistic->save();
+        // });
+        UpdateStatisticsJob::dispatch($task->assigned_to_id);
+
         $tasks = Task::simplePaginate(10);
         return view('tasks.index', ["tasks" => $tasks]);
     }
